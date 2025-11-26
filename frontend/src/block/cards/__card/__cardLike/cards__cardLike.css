@@ -1,0 +1,22 @@
+.cards__cardLike {
+  background: url(https://practicum-content.s3.us-west-1.amazonaws.com/web-code/dom/moved_heart.svg);
+  width: 24px;
+  height: 22px;
+  margin-left: 4px;
+  margin-top: 5px;
+  cursor: pointer;
+  display: flex;
+}
+
+.cards__cardLike:hover {
+  opacity: 50%;
+}
+
+.cards__cardLike_active {
+  background: url(https://practicum-content.s3.us-west-1.amazonaws.com/web-code/dom/moved_heart-filled.svg);
+}
+
+.cards__like-counter {
+  color: #000;
+  margin-left: 255px;
+}

@@ -1,0 +1,17 @@
+.imageDisplay__close {
+  position: absolute;
+  top: 40px;
+  right: 310px;
+  cursor: pointer;
+  z-index: 1000;
+  background-color: yellow;
+}
+
+@media screen and (max-width: 320px) and (max-height: 2814px) {
+  .imageDisplay__close {
+    width: 30px;
+    height: 30px;
+    margin-left: 290px;
+    margin-top: 100px;
+  }
+}

@@ -1,0 +1,29 @@
+@keyframes fade_in_show {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.popupWithConfirmation {
+  display: none;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 9999;
+  position: fixed;
+  align-content: center;
+  top: 0;
+  animation: fade_in_show 0.8s;
+}
+
+.popupWithConfirmation_change_display {
+  display: flex;
+  margin-top: auto;
+  position: fixed;
+}

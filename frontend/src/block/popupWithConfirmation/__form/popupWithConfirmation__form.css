@@ -1,0 +1,23 @@
+.popupWithConfirmation__form {
+  width: 430px;
+  height: 181px;
+  margin-top: 110px;
+  margin-left: 30%;
+  border: 1px solid #000000;
+  border-radius: 10px;
+  box-shadow: 0px 0px 25px 0px #00000026;
+  background-color: #ffffff;
+  position: fixed;
+  align-items: center;
+  max-width: 90%;
+  color: #000000;
+}
+
+@media screen and (max-width: 320px) and (max-height: 2814px) {
+  .popupWithConfirmation__form {
+    width: 282px;
+    height: 322px;
+    position: fixed;
+    max-width: 100%;
+  }
+}

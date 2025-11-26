@@ -1,0 +1,21 @@
+.profile__edit {
+  width: 24px;
+  height: 24px;
+  margin-top: 15px;
+  margin-left: 18px;
+  border: 1px solid #ffffff;
+  display: flex;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 320px) and (max-height: 2814px) {
+  .profile__edit {
+    width: 18px;
+    height: 18px;
+    margin-top: 5px;
+    margin-left: 19px;
+    border: 1px solid #ffffff;
+    display: flex;
+    cursor: pointer;
+  }
+}

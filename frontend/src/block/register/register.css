@@ -1,0 +1,118 @@
+.register-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.register {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start; /* ou center se quiser no meio */
+  margin-top: 40px;
+  /*  margin: 0;*/
+  padding: 40px 0; /* em vez de margin-top negativo */
+  color: #fff;
+}
+
+.register__title {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0 0 40px 0; /* remove o margin-top negativo */
+}
+
+.register__form {
+  display: flex;
+  flex-direction: column;
+  width: 320px;
+}
+
+.register__field {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.register__input {
+  width: 100%;
+  padding: 12px 10px;
+  border: none;
+  border-bottom: 2px solid #fff;
+  background: transparent;
+  color: #fff;
+  font-size: 16px;
+  outline: none;
+}
+
+.register__input::placeholder {
+  color: #aaa;
+  font-size: 14px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translateY(-20px); /* sobe para parecer label */
+}
+
+.register__button {
+  background: #fff;
+  color: #000;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 100px;
+  transition: background 0.2s ease;
+}
+
+.register__button:hover {
+  background: #e6e6e6;
+}
+
+.register__text {
+  font-size: 14px;
+  margin-top: 20px;
+}
+
+.register__link {
+  color: #fff;
+  text-decoration: underline;
+  margin-left: 5px;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 320px) and (max-height: 2814px) {
+  .register {
+    max-width: 320px; /* força a página a ter exatamente a altura da tela */
+    overflow: hidden;
+    padding: 20px 0;
+  }
+
+  .register__form {
+    width: 90%;
+    margin-top: 0;
+    padding-top: 0;
+  }
+
+  .register__title {
+    font-size: 16px;
+    margin: 0 0 20px 0;
+  }
+
+  .register__input {
+    font-size: 13px;
+    padding: 8px;
+  }
+
+  .register__button {
+    font-size: 13px;
+    padding: 10px;
+    margin-top: 150px;
+  }
+
+  .register__text {
+    font-size: 12px;
+    margin-top: 15px;
+  }
+}

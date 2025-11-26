@@ -1,0 +1,9 @@
+.cards__card-img {
+  margin-top: 0;
+  margin-bottom: 25px;
+  width: 282px;
+  height: 282px;
+  display: flex;
+  border-radius: 10px 10px 0px 0px;
+  object-fit: cover;
+}

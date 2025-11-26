@@ -1,0 +1,17 @@
+.cards__card_interation {
+  display: grid;
+  grid-template-columns: 225px 21px;
+  grid-template-rows: 45px;
+  column-gap: 18px;
+  width: 280px;
+  height: 30px;
+  margin-top: 0px;
+  padding-bottom: 0;
+  margin-left: 0px;
+}
+
+.cards__cardLike-wrapper {
+  display: flex;
+  margin-top: 0;
+  padding-top: 0;
+}

@@ -1,0 +1,24 @@
+.popupAvatarUpdate__name {
+  margin-top: 34px;
+  margin-bottom: 0;
+  width: 330px;
+  height: 23px;
+  font-size: 24px;
+  font-weight: 900px;
+  line-height: 29px;
+  margin-left: 36px;
+  color: #000000;
+}
+
+@media screen and (max-width: 320px) and (max-height: 2814px) {
+  .popupAvatarUpdate__name {
+    margin-top: 25px;
+    width: 238px;
+    height: 22px;
+    font-size: 18px;
+    font-weight: 900px;
+    line-height: 21.78px;
+    margin-left: 22px;
+    color: #000000;
+  }
+}

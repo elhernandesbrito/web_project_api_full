@@ -1,0 +1,33 @@
+footer {
+  margin-top: 860px;
+  width: 880px;
+  margin-left: 200px;
+}
+
+.copyright {
+  margin-top: 0;
+  width: 318px;
+  height: 18px;
+  line-height: 21.78px;
+  font-weight: 400px;
+  font-size: 18px;
+  color: #545454;
+}
+
+@media screen and (max-width: 320px) and (max-height: 2814px) {
+  footer {
+    margin-top: 2380px;
+    width: 282px;
+    margin-left: 19px;
+  }
+
+  .copyright {
+    margin-top: 0;
+    width: 282px;
+    height: 14px;
+    line-height: 16.94px;
+    font-weight: 400px;
+    font-size: 14px;
+    color: #545454;
+  }
+}

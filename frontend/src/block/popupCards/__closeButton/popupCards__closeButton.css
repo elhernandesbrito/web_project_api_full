@@ -1,0 +1,21 @@
+.popupCards__closeButton {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  margin-left: 840px;
+  margin-top: 70px;
+  border: 1px solid #000000;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 320px) and (max-height: 2814px) {
+  .popupCards__closeButton {
+    width: 26px;
+    height: 26px;
+    position: absolute;
+    margin-left: 264.62px;
+    margin-top: 91px;
+    border: 1px solid #000000;
+    cursor: pointer;
+  }
+}
