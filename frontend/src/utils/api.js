@@ -1,4 +1,3 @@
-// frontend/src/utils/api.js
 
 class Api {
   constructor({ baseUrl }) {

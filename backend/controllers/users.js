@@ -44,9 +44,7 @@ module.exports.createUser = (req, res, next) => {
     .catch(next);
 };
 
-// ===============================
 //  Login (signin)
-// ===============================
 module.exports.login = (req, res, next) => {
   const { email, password } = req.body;
 
@@ -78,9 +76,8 @@ module.exports.login = (req, res, next) => {
     .catch(next);
 };
 
-// ===============================
+
 //  Buscar usuário logado /users/me
-// ===============================
 module.exports.getCurrentUser = (req, res, next) => {
   User.findById(req.user._id)
     .then((user) => {
@@ -94,9 +91,8 @@ module.exports.getCurrentUser = (req, res, next) => {
     .catch(next);
 };
 
-// ===============================
+
 //  Atualizar dados do usuário
-// ===============================
 module.exports.updateUser = (req, res, next) => {
   const { name, about } = req.body;
 
@@ -122,9 +118,7 @@ module.exports.updateUser = (req, res, next) => {
     });
 };
 
-// ===============================
 //  Atualizar avatar
-// ===============================
 module.exports.updateAvatar = (req, res, next) => {
   const { avatar } = req.body;
 
