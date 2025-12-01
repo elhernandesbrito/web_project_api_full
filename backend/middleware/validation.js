@@ -41,8 +41,42 @@ const validateAvatar = celebrate({
   }),
 });
 
+// =============================
+// Validação do createCard (POST /cards)
+// =============================
+const validateCreateCard = celebrate({
+  body: Joi.object().keys({
+    name: Joi.string().required().min(2).max(30),
+    link: Joi.string().required().custom(validateURL),
+  }),
+});
+
+// =============================
+// Validação do cardId (params)
+// =============================
+const validateCardId = celebrate({
+  params: Joi.object().keys({
+    cardId: Joi.string().length(24).hex().required(),
+  }),
+});
+
+// =============================
+// Validação do updateUser (PATCH /users/me)
+// =============================
+const validateUpdateUser = celebrate({
+  body: Joi.object().keys({
+    name: Joi.string().min(2).max(30).required(),
+    about: Joi.string().min(2).max(200).required(),
+  }),
+});
+
+
+
 module.exports = {
   validateSignup,
   validateSignin,
-  validateAvatar
+  validateAvatar,
+  validateCreateCard,
+  validateCardId,
+  validateUpdateUser
 };

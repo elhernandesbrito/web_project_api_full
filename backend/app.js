@@ -39,7 +39,11 @@ app.use(auth);
 
 // Rotas protegidas
 const usersRouter = require('./routes/users');
+const cardsRouter = require('./routes/cards');
+
 app.use('/users', usersRouter);
+app.use('/cards', cardsRouter);
+
 
 // Middlewares de erro
 

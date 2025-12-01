@@ -6,7 +6,7 @@ const {
   updateUser,
   updateAvatar,
 } = require('../controllers/users');
-const { validateAvatar } = require('../middleware/validation');
+const { validateAvatar, validateUpdateUser } = require('../middleware/validation');
 
 // =============================
 // Rotas de usuários
@@ -20,5 +20,7 @@ router.patch('/me', updateUser);
 
 // Atualizar avatar
 router.patch('/me/avatar',validateAvatar, updateAvatar);
+
+router.patch('/me', validateUpdateUser, updateUser);
 
 module.exports = router;

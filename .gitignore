@@ -1,0 +1,8 @@
+# Logs
+backend/logs/
+
+# Node
+backend/node_modules/
+
+# Environment variables
+.env

@@ -1,106 +1,92 @@
 const Card = require('../models/card');
 
-function getCards(req, res) {
-  return Card.find({})
-    .then((cards) => res.send(cards))
-    .catch(() => res.status(500).send({ message: 'Erro no servidor ao buscar cartões' }));
-}
-
-function createCard(req, res) {
+// =============================
+// Criar card
+// POST /cards
+// =============================
+module.exports.createCard = (req, res, next) => {
   const { name, link } = req.body;
-  const owner = req.user._id;
 
-  return Card.create({ name, link, owner })
-    .then((card) => res.send(card))
+  Card.create({
+    name,
+    link,
+    owner: req.user._id,
+  })
+    .then((card) => res.status(201).send(card))
     .catch((err) => {
-      console.log(err);
       if (err.name === 'ValidationError') {
-        return res.status(400).send({ message: 'Dados inválidos para criação do cartão' });
+        return res.status(400).send({ message: 'Dados inválidos para criar card' });
       }
-      return res.status(500).send({ message: 'Erro ao criar cartão' });
+      return next(err);
     });
-}
-function deleteCard(req, res) {
-  const { cardId } = req.params;
+};
 
-  Card.findById(cardId)
+// =============================
+// Listar cards
+// GET /cards
+// =============================
+module.exports.getCards = (req, res, next) => {
+  Card.find({})
+    .then((cards) => res.send(cards))
+    .catch(next);
+};
+
+// =============================
+// Deletar card
+// DELETE /cards/:cardId
+// =============================
+module.exports.deleteCard = (req, res, next) => {
+  Card.findById(req.params.cardId)
     .then((card) => {
       if (!card) {
-        return res.status(404).send({ message: 'Cartão não encontrado' });
+        return res.status(404).send({ message: 'Card não encontrado' });
       }
 
-      // Verificar se o usuário é o dono
-      if (card.owner.toString() !== req.user._id) {
-        return res.status(403).send({ message: 'Você não pode deletar este cartão' });
+      // Verifica se o usuário é dono do card
+      if (!card.owner.equals(req.user._id)) {
+        return res.status(403).send({ message: 'Você não pode excluir cards de outros usuários' });
       }
 
-      // Se for dono, apagar
-      return Card.findByIdAndDelete(cardId)
-        .then(() => res.send({ message: 'Cartão deletado com sucesso' }));
+      return Card.findByIdAndDelete(req.params.cardId)
+        .then(() => res.send({ message: 'Card deletado' }));
     })
-    .catch((err) => {
-      if (err.name === 'CastError') {
-        return res.status(400).send({ message: 'ID de cartão inválido' });
-      }
-      return res.status(500).send({ message: 'Erro ao deletar cartão' });
-    });
-}
+    .catch(next);
+};
 
-function getCardById(req, res) {
-  const { cardId } = req.params;
-
-  Card.findById(cardId)
-    .orFail(() => new Error('Cartão não encontrado'))
-    .then((card) => res.send(card))
-    .catch((err) => {
-      if (err.message === 'Cartão não encontrado') {
-        return res.status(404).send({ message: err.message });
-      }
-      if (err.name === 'CastError') {
-        return res.status(400).send({ message: 'ID de cartão inválido' });
-      }
-      return res.status(500).send({ message: 'Erro ao buscar cartão' });
-    });
-}
-
-function likeCard(req, res) {
-  return Card.findByIdAndUpdate(
+// =============================
+// Curtir card
+// PUT /cards/:cardId/likes
+// =============================
+module.exports.likeCard = (req, res, next) => {
+  Card.findByIdAndUpdate(
     req.params.cardId,
     { $addToSet: { likes: req.user._id } },
     { new: true },
   )
-    .orFail(() => new Error('Cartão não encontrado'))
-    .then((card) => res.send(card))
-    .catch((err) => {
-      if (err.name === 'CastError') {
-        return res.status(400).send({ message: 'ID de cartão inválido' });
+    .then((card) => {
+      if (!card) {
+        return res.status(404).send({ message: 'Card não encontrado' });
       }
-      if (err.message === 'Cartão não encontrado') {
-        return res.status(404).send({ message: err.message });
-      }
-      return res.status(500).send({ message: 'Erro ao curtir cartão' });
-    });
-}
+      return res.send(card);
+    })
+    .catch(next);
+};
 
-function dislikeCard(req, res) {
-  return Card.findByIdAndUpdate(
+// =============================
+// Remover curtida
+// DELETE /cards/:cardId/likes
+// =============================
+module.exports.dislikeCard = (req, res, next) => {
+  Card.findByIdAndUpdate(
     req.params.cardId,
     { $pull: { likes: req.user._id } },
     { new: true },
   )
-    .orFail(() => new Error('Cartão não encontrado'))
-    .then((card) => res.send(card))
-    .catch((err) => {
-      if (err.name === 'CastError') {
-        return res.status(400).send({ message: 'ID de cartão inválido' });
+    .then((card) => {
+      if (!card) {
+        return res.status(404).send({ message: 'Card não encontrado' });
       }
-      if (err.message === 'Cartão não encontrado') {
-        return res.status(404).send({ message: err.message });
-      }
-      return res.status(500).send({ message: 'Erro ao descurtir cartão' });
-    });
-}
-
-module.exports = {
-  getCards, createCard, deleteCard, getCardById, likeCard, dislikeCard,
+      return res.send(card);
+    })
+    .catch(next);
 };
