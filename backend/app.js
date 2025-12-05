@@ -26,12 +26,6 @@ mongoose.connect('mongodb://127.0.0.1:27017/aroundbrazil')
 
 const { login, createUser } = require('./controllers/users');
 
-app.get('/crash-test', () => {
-  setTimeout(() => {
-    throw new Error('O servidor travará agora');
-  }, 0);
-});
-
 
 // Rotas públicas (sem token)
 
