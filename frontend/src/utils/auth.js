@@ -1,5 +1,7 @@
 //export const BASE_URL = "https://api.aroundprojecteh.mooo.com";
-export const BASE_URL = "http://localhost:3000";
+//export const BASE_URL = "http://localhost:3000";
+export const BASE_URL = "/api";
+
 
 // Função para registrar usuário (signup)
 export const register = (email, password) => {

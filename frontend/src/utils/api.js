@@ -103,7 +103,7 @@ class Api {
 
 // Instância da API — aponta para seu backend local
 const api = new Api({
-  baseUrl: "http://localhost:3000",
+   baseUrl: "/api",
 });
 
 // Exporta para o App.js poder atualizar o token
