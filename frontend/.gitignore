@@ -13,9 +13,10 @@ dist-ssr
 *.local
 
 # Build de produção (NÃO versionar)
-frontend/build/
+
 build/
 build.tar.gz
+
 
 # Logs do backend
 backend/logs/

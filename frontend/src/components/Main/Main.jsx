@@ -109,7 +109,8 @@ function Main({
             handleOpenPopup={onOpenPopup}
             onCardLike={onCardLike}
             onCardDelete={handleRequestDelete}
-            isLiked={card.isLiked}
+            isLiked={card.likes.some((id) => id === currentUser._id)}
+
           />
         ))}
       </ul>

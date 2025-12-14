@@ -53,7 +53,8 @@ export default function Card({
       </div>
 
       <div className="cards__cardLike-wrapper">
-        <span className="cards__like-counter">{isLiked ? 1 : 0}</span>
+        <span className="cards__like-counter">{card.likes.length}</span>
+
       </div>
     </li>
   );
