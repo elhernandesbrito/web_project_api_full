@@ -135,4 +135,4 @@ Deploy: O projeto foi hospedado em uma VM na Google Cloud, utilizando NGINX como
 
 Autor
 
-Seu Nome
+ELISANGELA HERNANDES BRITO
